@@ -115,21 +115,21 @@ if __name__ == '__main__':
     root = tk.Tk()
     root.withdraw() # 隐藏主窗口
 
-    test_url = "https://marketplace.visualstudio.com/items?itemName=ms-python.python"
-    test_version = "latest" # 或者一个具体的版本号 "2023.20.0"
+    test_url = ""
+    test_version = ""
 
-    print(f"测试下载: URL={test_url}, Version={test_version}")
+    print("测试下载: 请手动输入URL和版本号")
     # 注意：直接运行会弹出文件保存对话框
     # download_vsix(test_url, test_version, dummy_status, dummy_progress)
 
     print("\n测试无效 URL:")
-    download_vsix("invalid-url", "latest", dummy_status, dummy_progress)
+    download_vsix("invalid-url", "", dummy_status, dummy_progress)
 
     print("\n测试无效版本:")
-    download_vsix(test_url, "invalid-version", dummy_status, dummy_progress)
+    download_vsix("", "invalid-version", dummy_status, dummy_progress)
 
     print("\n测试不存在的版本:")
-    download_vsix(test_url, "0.0.0", dummy_status, dummy_progress)
+    download_vsix("", "0.0.0", dummy_status, dummy_progress)
 
 
     # root.mainloop() # 如果需要保持窗口以查看对话框，取消注释这行
