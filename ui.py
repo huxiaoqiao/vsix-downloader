@@ -34,13 +34,13 @@ class DownloaderUI:
         self.url_entry = ttk.Entry(main_frame, width=50)
         self.url_entry.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=2)
         # 示例 URL 提示
-        self.url_entry.insert(0, "https://marketplace.visualstudio.com/items?itemName=...")
+        self.url_entry.insert(0, "") # 清空默认值
 
         # 版本输入
-        ttk.Label(main_frame, text="版本号 (e.g., 1.0.0 or latest):").grid(row=1, column=0, sticky=tk.W, pady=2)
+        ttk.Label(main_frame, text="版本号 (e.g., 1.0.0):").grid(row=1, column=0, sticky=tk.W, pady=2)
         self.version_entry = ttk.Entry(main_frame, width=20)
         self.version_entry.grid(row=1, column=1, sticky=tk.W, pady=2)
-        self.version_entry.insert(0, "latest")
+        self.version_entry.insert(0, "") # 清空默认值
 
         # 下载按钮
         self.download_button = ttk.Button(main_frame, text="下载 VSIX", command=self._on_download_click)
