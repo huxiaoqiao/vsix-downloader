@@ -92,7 +92,15 @@ class DownloaderUI:
         """更新状态标签的文本"""
         self.status_label.config(text=f"状态：{message}")
         # 如果下载完成或出错，重新启用按钮
-        if "完成" in message or "错误" in message or "取消" in message:
+        if "完成" in message:
+            # 下载成功，重置 UI
+            self.url_entry.delete(0, tk.END)
+            self.version_entry.delete(0, tk.END)
+            self.status_label.config(text="状态：准备就绪") # 直接设置初始状态
+            self.update_progress(0) # 重置进度条
+            self.download_button.config(state=tk.NORMAL) # 重新启用按钮
+        elif "错误" in message or "取消" in message:
+             # 下载失败或取消，只重新启用按钮
              self.download_button.config(state=tk.NORMAL)
         self.master.update_idletasks() # 强制更新 UI
 
